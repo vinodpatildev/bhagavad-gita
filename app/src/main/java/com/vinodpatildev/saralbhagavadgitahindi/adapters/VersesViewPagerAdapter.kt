@@ -37,7 +37,7 @@ class VersesViewPagerAdapter(private val context: Context, private val versesLis
                     val chapterNamesDevnagariArray =
                         context.resources.getStringArray(R.array.chapter_names_bhagavad_gita)
 
-                    tvChapterName.text = chapterNamesDevnagariArray[it.chapter_number]
+                    tvChapterName.text = chapterNamesDevnagariArray[it.chapter_number-1]
                     tvVerseNumber.text =
                         it.chapter_number_devanagari + "." + it.verse_number_devanagari
                     tvVerse.text = it.verse
