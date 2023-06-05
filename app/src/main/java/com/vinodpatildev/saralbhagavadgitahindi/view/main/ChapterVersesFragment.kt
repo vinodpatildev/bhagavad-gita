@@ -2,10 +2,7 @@ package com.vinodpatildev.saralbhagavadgitahindi.view.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,7 +40,18 @@ class ChapterVersesFragment : Fragment(R.layout.fragment_chapter_verses) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentChapterVersesBinding.bind(view)
         chapterVersesFragmentViewModel = ViewModelProvider(this, chapterVersesFragmentViewModelFactory).get( ChapterVersesFragmentViewModel::class.java )
+//        initializeBannerAd()
+//        loadBannerAd()
     }
+
+//    private fun initializeBannerAd() {
+//        MobileAds.initialize(requireContext())
+//    }
+//
+//    private fun loadBannerAd() {
+//        val adRequest = AdRequest.Builder().build()
+//        binding?.adView?.loadAd(adRequest)
+//    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

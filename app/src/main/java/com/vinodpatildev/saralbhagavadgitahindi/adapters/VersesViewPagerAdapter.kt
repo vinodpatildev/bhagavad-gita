@@ -37,7 +37,7 @@ class VersesViewPagerAdapter(private val context: Context, private val versesLis
                     val chapterNamesDevnagariArray =
                         context.resources.getStringArray(R.array.chapter_names_bhagavad_gita)
 
-                    tvChapterName.text = chapterNamesDevnagariArray[it.chapter_number-1]
+                    tvChapterName.text = chapterNamesDevnagariArray[it.chapter_number - 1]
                     tvVerseNumber.text =
                         it.chapter_number_devanagari + "." + it.verse_number_devanagari
                     tvVerse.text = it.verse
@@ -45,6 +45,16 @@ class VersesViewPagerAdapter(private val context: Context, private val versesLis
                     tvTranslation.text = it.meaning
                 }
             }
+//            initializeBannerAd()
+//            loadBannerAd()
         }
+//        private fun initializeBannerAd() {
+//            MobileAds.initialize(context)
+//        }
+//
+//        private fun loadBannerAd() {
+//            val adRequest = AdRequest.Builder().build()
+//            binding?.adView?.loadAd(adRequest)
+//        }
     }
 }
