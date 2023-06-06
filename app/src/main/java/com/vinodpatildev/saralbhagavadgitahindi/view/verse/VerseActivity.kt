@@ -2,6 +2,7 @@ package com.vinodpatildev.saralbhagavadgitahindi.view.verse
 
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -9,10 +10,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.vinodpatildev.saralbhagavadgitahindi.R
 import com.vinodpatildev.saralbhagavadgitahindi.adapters.VersesViewPagerAdapter
 import com.vinodpatildev.saralbhagavadgitahindi.databinding.ActivityVerseBinding
 import com.vinodpatildev.saralbhagavadgitahindi.model.Verse
+import com.vinodpatildev.saralbhagavadgitahindi.utils.Constants
 import com.vinodpatildev.saralbhagavadgitahindi.utils.SliderTransformer
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.VerseActivityViewModel
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.VerseActivityViewModelFactory
@@ -26,6 +34,9 @@ class VerseActivity : AppCompatActivity() {
     lateinit var verseActivityViewModelFactory: VerseActivityViewModelFactory
     lateinit var verseActivityViewModel : VerseActivityViewModel
     private lateinit var mCurrentVerse : Verse
+
+//    private var mInterstitialAd: InterstitialAd? = null
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +68,40 @@ class VerseActivity : AppCompatActivity() {
                 })
             }
         }
+
+//        initializeInterstitialAd()
+//        loadInterstitialAd()
     }
+
+//    private fun initializeInterstitialAd() {
+//        var adRequest = AdRequest.Builder().build()
+//        InterstitialAd.load(this,getString(R.string.admob_interstitial_ad_unit_id), adRequest, object : InterstitialAdLoadCallback() {
+//            override fun onAdFailedToLoad(adError: LoadAdError) {
+//                mInterstitialAd = null
+//            }
+//
+//            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+//                mInterstitialAd = interstitialAd
+//            }
+//        })
+//        mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
+//            override fun onAdDismissedFullScreenContent() {
+//                mInterstitialAd = null
+//            }
+//
+//            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+//                mInterstitialAd = null
+//            }
+//        }
+//    }
+//    private fun loadInterstitialAd() {
+//        val handler = Handler()
+//        handler.postDelayed({
+//            if (mInterstitialAd != null) {
+//                mInterstitialAd?.show(this)
+//            }
+//        }, Constants.shortTimeToShowAd)
+//    }
 
     private fun viewPagerVerseChanged(verse: Verse) {
         mCurrentVerse = verse

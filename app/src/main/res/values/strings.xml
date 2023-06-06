@@ -39,4 +39,16 @@
         <item>श्रद्धात्रयविभाग योग</item>
         <item>मोक्षसन्न्यास योग</item>
     </string-array>
+
+
+    <string name="admob_app_id">ca-app-pub-2935758820526888~5689480104</string>
+    <string name="admob_banner_ad_unit_id">ca-app-pub-2935758820526888/4308115676</string>
+    <string name="admob_interstitial_ad_unit_id">ca-app-pub-2935758820526888/5765463731</string>
+
+<!--    <string name="admob_app_id_test">ca-app-pub-3940256099942544~3347511713</string>-->
+<!--    <string name="admob_banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="admob_interstitial_ad_unit_id_test">ca-app-pub-3940256099942544/1033173712</string>-->
+
+
+
 </resources>
