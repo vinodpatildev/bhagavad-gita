@@ -39,7 +39,9 @@ class ChapterVersesFragment : Fragment(R.layout.fragment_chapter_verses) {
     private lateinit var chapterVersesFragmentViewModel: ChapterVersesFragmentViewModel
     private var chapterVersesAdapter: ChapterVersesAdapter? = null
 
-    private var mInterstitialAd: InterstitialAd? = null
+    private lateinit var mAdRequest: AdRequest
+//    private var mInterstitialAd: InterstitialAd? = null
+    private lateinit var mVerseParam : Verse
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,50 +55,51 @@ class ChapterVersesFragment : Fragment(R.layout.fragment_chapter_verses) {
         binding = FragmentChapterVersesBinding.bind(view)
         chapterVersesFragmentViewModel = ViewModelProvider(this, chapterVersesFragmentViewModelFactory).get( ChapterVersesFragmentViewModel::class.java )
 
-        initializeInterstitialAd()
-        loadInterstitialAd()
+        initializeAdRequest()
+
+//        initializeInterstitialAd()
 
         initializeBannerAd()
         loadBannerAd()
     }
 
-    private fun initializeInterstitialAd() {
-        var adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(requireContext(),getString(R.string.admob_interstitial_ad_unit_id), adRequest, object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                mInterstitialAd = null
-            }
-
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                mInterstitialAd = interstitialAd
-            }
-        })
-        mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
-            override fun onAdDismissedFullScreenContent() {
-                mInterstitialAd = null
-            }
-
-            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-                mInterstitialAd = null
-            }
-        }
+    private fun initializeAdRequest() {
+        mAdRequest = AdRequest.Builder().build()
     }
-    private fun loadInterstitialAd() {
-        val handler = Handler()
-        handler.postDelayed({
-            if (mInterstitialAd != null) {
-                mInterstitialAd?.show(requireActivity())
-            }
-        }, Constants.longTimeToShowAd)
-    }
+
+//    private fun initializeInterstitialAd() {
+//        InterstitialAd.load(requireContext(),getString(R.string.admob_interstitial_ad_unit_id), mAdRequest, object : InterstitialAdLoadCallback() {
+//            override fun onAdFailedToLoad(adError: LoadAdError) {
+//                mInterstitialAd = null
+//            }
+//
+//            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+//                mInterstitialAd = interstitialAd
+//            }
+//        })
+//        mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
+//            override fun onAdDismissedFullScreenContent() {
+//                mInterstitialAd = null
+//                openVerseActivity()
+//            }
+//
+//            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+//                mInterstitialAd = null
+//            }
+//        }
+//    }
+//    private fun loadInterstitialAd() {
+//        if (mInterstitialAd != null) {
+//            mInterstitialAd?.show(requireActivity())
+//        }
+//    }
 
     private fun initializeBannerAd() {
         MobileAds.initialize(requireContext())
     }
 
     private fun loadBannerAd() {
-        val adRequest = AdRequest.Builder().build()
-        binding?.adView?.loadAd(adRequest)
+        binding?.adView?.loadAd(mAdRequest)
     }
 
 
@@ -120,7 +123,8 @@ class ChapterVersesFragment : Fragment(R.layout.fragment_chapter_verses) {
     private fun setupChapterVersesRecyclerView(chapterNo: Int) {
         chapterVersesFragmentViewModel.chapterVersesLiveData(chapterNo).observe(viewLifecycleOwner){
             chapterVersesAdapter = ChapterVersesAdapter(it){
-                openVerseActivity(it)
+                mVerseParam = it
+                openVerseActivity()
             }
             binding?.apply {
                 rcvChapterVerses.layoutManager = LinearLayoutManager(requireContext())
@@ -129,9 +133,13 @@ class ChapterVersesFragment : Fragment(R.layout.fragment_chapter_verses) {
         }
     }
 
-    private fun openVerseActivity(verse : Verse) {
+//    private fun showInterstitialAdAndOpenVerseActivity(){
+//        loadInterstitialAd()
+//    }
+
+    private fun openVerseActivity() {
         val verseActivityIntent = Intent(requireContext(), VerseActivity::class.java)
-        verseActivityIntent.putExtra(VerseActivity.ARG_VERSE, verse)
+        verseActivityIntent.putExtra(VerseActivity.ARG_VERSE, mVerseParam)
         startActivity(verseActivityIntent)
         activity?.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
     }

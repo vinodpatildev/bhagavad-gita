@@ -35,47 +35,13 @@ class ChaptersFragment : Fragment(R.layout.fragment_chapters) {
     private lateinit var chaptersFragmentViewModel: ChaptersFragmentViewModel
     private var chaptersAdapter : ChaptersAdapter? = null
 
-    private var mInterstitialAd: InterstitialAd? = null
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentChaptersBinding.bind(view)
         chaptersFragmentViewModel = ViewModelProvider(this,chaptersFragmentViewModelFactory).get(ChaptersFragmentViewModel::class.java)
 
-        initializeInterstitialAd()
-        loadInterstitialAd()
-
         initializeBannerAd()
         loadBannerAd()
-    }
-    private fun initializeInterstitialAd() {
-        var adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(requireContext(),getString(R.string.admob_interstitial_ad_unit_id), adRequest, object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                mInterstitialAd = null
-            }
-
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                mInterstitialAd = interstitialAd
-            }
-        })
-        mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
-            override fun onAdDismissedFullScreenContent() {
-                mInterstitialAd = null
-            }
-
-            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-                mInterstitialAd = null
-            }
-        }
-    }
-    private fun loadInterstitialAd() {
-        val handler = Handler()
-        handler.postDelayed({
-            if (mInterstitialAd != null) {
-                mInterstitialAd?.show(requireActivity())
-            }
-        }, Constants.longLongTimeToShowAd)
     }
 
 
