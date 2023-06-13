@@ -4,17 +4,18 @@ import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "chapters_table")
 data class Chapter(
-    val chapter_meaning: String?,
-    val chapter_name: String?,
-    val chapter_number: Int,
-    val chapter_number_devanagari: String?,
-    val chapter_number_pronounce: String?,
-    val chapter_summary: String?,
-    val chapter_verses_count: Int,
-    @PrimaryKey val id: Int
+    @SerializedName("chapter_meaning") val chapter_meaning: String?,
+    @SerializedName("chapter_name") val chapter_name: String?,
+    @SerializedName("chapter_number") val chapter_number: Int,
+    @SerializedName("chapter_number_devanagari") val chapter_number_devanagari: String?,
+    @SerializedName("chapter_number_pronounce") val chapter_number_pronounce: String?,
+    @SerializedName("chapter_summary") val chapter_summary: String?,
+    @SerializedName("chapter_verses_count") val chapter_verses_count: Int,
+    @SerializedName("id") @PrimaryKey val id: Int
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
