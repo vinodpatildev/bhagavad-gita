@@ -1,13 +1,13 @@
 <resources>
 <!--    <string name="app_name">saral bhagavad gita Hindi</string>-->
-    <string name="app_name">सरल भगवद्गीता</string>
+    <string name="app_name">श्रीमद् भगवद्गीता</string>
     <!--    admob cred-->
     <string name="admob_app_id">ca-app-pub-2935758820526888~5689480104</string>
     <string name="admob_banner_ad_unit_id">ca-app-pub-2935758820526888/4308115676</string>
     <string name="admob_interstitial_ad_unit_id">ca-app-pub-2935758820526888/5765463731</string>
 
     <!--    splash screen-->
-    <string name="splash_screen_title">॥ सरल भगवद्गीता ॥</string>
+    <string name="splash_screen_title">॥ श्रीमद् भगवद्गीता ॥</string>
     <!--    verse rcv layout-->
     <string name="text_verse_number">१.१</string>
     <string name="sample_text_verse_sanskrit">धृतराष्ट्र उवाच\nधर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सव: ।\nमामका: पाण्डवाश्चैव किमकुर्वत सञ्जय ॥ १ ॥</string>
@@ -44,11 +44,4 @@
         <item>श्रद्धात्रयविभाग योग</item>
         <item>मोक्षसन्न्यास योग</item>
     </string-array>
-
-<!--    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>-->
-<!--    <string name="admob_banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
-<!--    <string name="admob_interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>-->
-
-
-
 </resources>
