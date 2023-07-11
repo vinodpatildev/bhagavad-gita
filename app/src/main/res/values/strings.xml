@@ -2,9 +2,9 @@
 <!--    <string name="app_name">saral bhagavad gita Hindi</string>-->
     <string name="app_name">श्रीमद् भगवद्गीता</string>
     <!--    admob cred-->
-    <string name="admob_app_id">ca-app-pub-2935758820526888~5689480104</string>
-    <string name="admob_banner_ad_unit_id">ca-app-pub-2935758820526888/4308115676</string>
-    <string name="admob_interstitial_ad_unit_id">ca-app-pub-2935758820526888/5765463731</string>
+<!--    <string name="admob_app_id">ca-app-pub-2935758820526888~5689480104</string>-->
+<!--    <string name="admob_banner_ad_unit_id">ca-app-pub-2935758820526888/4308115676</string>-->
+<!--    <string name="admob_interstitial_ad_unit_id">ca-app-pub-2935758820526888/5765463731</string>-->
 
     <!--    splash screen-->
     <string name="splash_screen_title">॥ श्रीमद् भगवद्गीता ॥</string>
