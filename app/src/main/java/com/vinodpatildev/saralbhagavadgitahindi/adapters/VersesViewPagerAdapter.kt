@@ -4,8 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
 import com.vinodpatildev.saralbhagavadgitahindi.R
 import com.vinodpatildev.saralbhagavadgitahindi.databinding.VpVerseLayoutItemBinding
 import com.vinodpatildev.saralbhagavadgitahindi.model.Verse
@@ -47,16 +45,16 @@ class VersesViewPagerAdapter(private val context: Context, private val versesLis
                     tvTranslation.text = it.meaning
                 }
             }
-            initializeBannerAd()
-            loadBannerAd()
+//            initializeBannerAd()
+//            loadBannerAd()
         }
-        private fun initializeBannerAd() {
-            MobileAds.initialize(context)
-        }
-
-        private fun loadBannerAd() {
-            val adRequest = AdRequest.Builder().build()
-            binding?.adView?.loadAd(adRequest)
-        }
+//        private fun initializeBannerAd() {
+//            MobileAds.initialize(context)
+//        }
+//
+//        private fun loadBannerAd() {
+//            val adRequest = AdRequest.Builder().build()
+//            binding?.adView?.loadAd(adRequest)
+//        }
     }
 }

@@ -1,26 +1,14 @@
 package com.vinodpatildev.saralbhagavadgitahindi.view.main
 
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.ads.AdError
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.FullScreenContentCallback
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.vinodpatildev.saralbhagavadgitahindi.R
 import com.vinodpatildev.saralbhagavadgitahindi.adapters.ChaptersAdapter
 import com.vinodpatildev.saralbhagavadgitahindi.databinding.FragmentChaptersBinding
 import com.vinodpatildev.saralbhagavadgitahindi.model.Chapter
-import com.vinodpatildev.saralbhagavadgitahindi.utils.Constants
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.ChaptersFragmentViewModel
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.ChaptersFragmentViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,19 +28,19 @@ class ChaptersFragment : Fragment(R.layout.fragment_chapters) {
         binding = FragmentChaptersBinding.bind(view)
         chaptersFragmentViewModel = ViewModelProvider(this,chaptersFragmentViewModelFactory).get(ChaptersFragmentViewModel::class.java)
 
-        initializeBannerAd()
-        loadBannerAd()
+//        initializeBannerAd()
+//        loadBannerAd()
     }
 
 
-    private fun initializeBannerAd() {
-        MobileAds.initialize(requireContext())
-    }
-
-    private fun loadBannerAd() {
-        val adRequest = AdRequest.Builder().build()
-        binding?.adView?.loadAd(adRequest)
-    }
+//    private fun initializeBannerAd() {
+//        MobileAds.initialize(requireContext())
+//    }
+//
+//    private fun loadBannerAd() {
+//        val adRequest = AdRequest.Builder().build()
+//        binding?.adView?.loadAd(adRequest)
+//    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

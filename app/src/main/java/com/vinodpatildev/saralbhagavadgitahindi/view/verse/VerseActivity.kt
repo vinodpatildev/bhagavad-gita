@@ -2,25 +2,15 @@ package com.vinodpatildev.saralbhagavadgitahindi.view.verse
 
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.gms.ads.AdError
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.FullScreenContentCallback
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.vinodpatildev.saralbhagavadgitahindi.R
 import com.vinodpatildev.saralbhagavadgitahindi.adapters.VersesViewPagerAdapter
 import com.vinodpatildev.saralbhagavadgitahindi.databinding.ActivityVerseBinding
 import com.vinodpatildev.saralbhagavadgitahindi.model.Verse
-import com.vinodpatildev.saralbhagavadgitahindi.utils.Constants
 import com.vinodpatildev.saralbhagavadgitahindi.utils.SliderTransformer
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.VerseActivityViewModel
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.VerseActivityViewModelFactory
