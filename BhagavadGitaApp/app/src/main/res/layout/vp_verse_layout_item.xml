@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        >
+        <TextView
+            android:id="@+id/tvHeadingBhagavadgita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/splash_screen_title"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/inknut_antiqua_bold"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvChapterName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/sample_chapter_name"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/inknut_antiqua_light"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHeadingBhagavadgita" />
+
+        <TextView
+            android:id="@+id/tvVerseNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/text_verse_number"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/inknut_antiqua_regular"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvChapterName" />
+
+        <TextView
+            android:id="@+id/tvVerse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            tools:text="@string/sample_text_verse_sanskrit"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:fontFamily="@font/inknut_antiqua_bold"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvVerseNumber" />
+
+
+        <TextView
+            android:id="@+id/tvSynonymsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:text="@string/text_synonyms_hindi"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/inknut_antiqua_bold"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvVerse" />
+
+        <TextView
+            android:id="@+id/tvSynonyms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            tools:text="@string/sample_text_synonyms_hindi"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:fontFamily="@font/inknut_antiqua_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSynonymsText" />
+
+        <TextView
+            android:id="@+id/tvTranslationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:text="@string/text_translation_hindi"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/inknut_antiqua_bold"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSynonyms" />
+
+        <TextView
+            android:id="@+id/tvTranslation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:text="@string/sample_text_translation_hindi"
+            android:textAlignment="center"
+            android:fontFamily="@font/inknut_antiqua_regular"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTranslationText" />
+
+<!--        <com.google.android.gms.ads.AdView-->
+<!--            android:id="@+id/adView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            app:adSize="BANNER"-->
+<!--            app:adUnitId="@string/admob_banner_ad_unit_id"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tvTranslation"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.5"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
