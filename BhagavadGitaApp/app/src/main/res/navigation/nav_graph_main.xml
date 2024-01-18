@@ -4,23 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
     app:startDestination="@id/chaptersFragment">
-
     <fragment
         android:id="@+id/chaptersFragment"
         android:name="com.vinodpatildev.saralbhagavadgitahindi.view.main.ChaptersFragment"
         android:label="fragment_chapters"
-        tools:layout="@layout/fragment_chapters" >
+        tools:layout="@layout/fragment_chapters">
         <action
-            android:id="@+id/action_chaptersFragment_to_chapterVersesFragment"
-            app:destination="@id/chapterVersesFragment" />
+            android:id="@+id/openVersesFragment"
+            app:destination="@id/versesFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+        <action
+            android:id="@+id/showChapterDetailsBottomSheet"
+            app:destination="@id/chapterDetailsBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/openSearchVerseFragment"
+            app:destination="@id/searchVerseFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/chapterVersesFragment"
-        android:name="com.vinodpatildev.saralbhagavadgitahindi.view.main.ChapterVersesFragment"
+        android:id="@+id/versesFragment"
+        android:name="com.vinodpatildev.saralbhagavadgitahindi.view.main.VersesFragment"
         android:label="fragment_chapter_verses"
-        tools:layout="@layout/fragment_chapter_verses" >
+        tools:layout="@layout/fragment_verses">
         <argument
-            android:name="FRAGMENT_ARG_CHAPTER"
-            app:argType="com.vinodpatildev.saralbhagavadgita.model.Chapter" />
+            android:name="fragmentArgChapter"
+            app:argType="com.vinodpatildev.saralbhagavadgitahindi.model.Chapter" />
     </fragment>
+    <dialog
+        android:id="@+id/chapterDetailsBottomSheetDialogFragment"
+        android:name="com.vinodpatildev.saralbhagavadgitahindi.view.main.ChapterDetailsBottomSheetDialogFragment"
+        android:label="fragment_chapter_details_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_chapter_details_bottom_sheet_dialog" >
+        <argument
+            android:name="fragmentArgChapter"
+            app:argType="com.vinodpatildev.saralbhagavadgitahindi.model.Chapter" />
+    </dialog>
+    <fragment
+        android:id="@+id/searchVerseFragment2"
+        android:name="com.vinodpatildev.saralbhagavadgitahindi.view.SearchVerseFragment"
+        android:label="fragment_search_verse"
+        tools:layout="@layout/fragment_search_verse" />
 </navigation>

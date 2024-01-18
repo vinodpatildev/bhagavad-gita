@@ -11,5 +11,9 @@ interface Repository {
 
     fun getAllChapters() : Flow<List<Chapter>>
 
-    fun getAllVersesOfChapter(chapterNo : Int) : Flow<List<Verse>>
+    fun getAllVersesOfChapter(chapterId : Int) : Flow<List<Verse>>
+
+    fun getVerse(verseId : Int) : Flow<Verse>
+
+    fun searchVerse(query : String) : Flow<List<Verse>>
 }

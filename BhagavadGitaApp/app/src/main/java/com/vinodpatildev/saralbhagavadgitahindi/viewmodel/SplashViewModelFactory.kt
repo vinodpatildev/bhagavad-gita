@@ -4,14 +4,14 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.vinodpatildev.saralbhagavadgitahindi.repository.Repository
-import com.vinodpatildev.saralbhagavadgitahindi.utils.DataStorePrefManager
+import com.vinodpatildev.saralbhagavadgitahindi.utils.DataStoreRepository
 
 class SplashViewModelFactory(
     private val app : Application,
-    private val dataStorePrefManager: DataStorePrefManager,
+    private val dataStoreRepository: DataStoreRepository,
     private val repository: Repository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return SplashViewModel(app,dataStorePrefManager,repository) as T
+        return SplashViewModel(app, dataStoreRepository,repository) as T
     }
 }

@@ -4,22 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SplashActivity"
     android:background="@color/color_background"
-    >
+    tools:context=".view.SplashActivity">
 
     <TextView
         android:id="@+id/tvVerseEnglish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/splash_screen_title"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        android:textAlignment="center"
         android:fontFamily="@font/gotu_regular"
+        android:text="@string/splash_screen_title"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

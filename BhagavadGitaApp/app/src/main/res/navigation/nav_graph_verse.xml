@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_verse.xml"
+    app:startDestination="@id/verseDetailsFragment">
+
+    <fragment
+        android:id="@+id/verseDetailsFragment"
+        android:name="com.vinodpatildev.saralbhagavadgitahindi.view.verse.VerseDetailsFragment"
+        android:label="fragment_verse_details"
+        tools:layout="@layout/fragment_verse_details" >
+        <action
+            android:id="@+id/openSearchVerseFragment"
+            app:destination="@id/searchVerseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchVerseFragment"
+        android:name="com.vinodpatildev.saralbhagavadgitahindi.view.SearchVerseFragment"
+        android:label="fragment_search_verse"
+        tools:layout="@layout/fragment_search_verse" />
+
+</navigation>

@@ -5,14 +5,12 @@ import com.vinodpatildev.saralbhagavadgitahindi.model.Chapter
 import com.vinodpatildev.saralbhagavadgitahindi.model.Verse
 import com.vinodpatildev.saralbhagavadgitahindi.repository.datasource.CacheDataSource
 import com.vinodpatildev.saralbhagavadgitahindi.repository.datasource.LocalDataSource
-import com.vinodpatildev.saralbhagavadgitahindi.repository.datasource.RemoteDataSource
 import kotlinx.coroutines.flow.Flow
 
 class RepositoryImpl(
     private val appContext: Context,
     private val cacheDataSource: CacheDataSource,
-    private val localDataSource: LocalDataSource,
-    private val remoteDataSource: RemoteDataSource,
+    private val localDataSource: LocalDataSource
     ) : Repository {
     override suspend fun insertAllVerses(verses: List<Verse>) {
         localDataSource.insertAllVersesToGitaDB(verses)
@@ -26,7 +24,15 @@ class RepositoryImpl(
         return localDataSource.getAllChaptersFromGitaDB()
     }
 
-    override fun getAllVersesOfChapter(chapterNo: Int): Flow<List<Verse>> {
-        return localDataSource.getAllVersesOfChapterFromGitaDB(chapterNo)
+    override fun getAllVersesOfChapter(chapterId: Int): Flow<List<Verse>> {
+        return localDataSource.getAllVersesOfChapterFromGitaDB(chapterId)
+    }
+
+    override fun getVerse(verseId: Int): Flow<Verse> {
+        return localDataSource.getVerseFromGitaDB(verseId)
+    }
+
+    override fun searchVerse(query: String): Flow<List<Verse>> {
+        return localDataSource.searchVersesFromGitaDB(query)
     }
 }

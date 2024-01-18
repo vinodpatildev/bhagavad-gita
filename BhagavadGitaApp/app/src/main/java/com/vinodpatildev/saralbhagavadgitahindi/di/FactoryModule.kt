@@ -2,11 +2,11 @@ package com.vinodpatildev.saralbhagavadgitahindi.di
 
 import android.app.Application
 import com.vinodpatildev.saralbhagavadgitahindi.repository.Repository
-import com.vinodpatildev.saralbhagavadgitahindi.utils.DataStorePrefManager
-import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.ChapterVersesFragmentViewModelFactory
+import com.vinodpatildev.saralbhagavadgitahindi.utils.DataStoreRepository
+import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.VersesFragmentViewModelFactory
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.ChaptersFragmentViewModelFactory
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.SplashViewModelFactory
-import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.VerseActivityViewModelFactory
+import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.VerseDetailsFragmentViewModelFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,12 +20,12 @@ class FactoryModule {
     @Provides
     fun providesSplashViewModelFactory(
         app : Application,
-        dataStorePrefManager: DataStorePrefManager,
+        dataStoreRepository: DataStoreRepository,
         repository: Repository
     ) : SplashViewModelFactory {
         return SplashViewModelFactory(
             app,
-            dataStorePrefManager,
+            dataStoreRepository,
             repository
         )
     }
@@ -34,12 +34,12 @@ class FactoryModule {
     @Provides
     fun providesChaptersFragmentViewModelFactory(
         app : Application,
-        dataStorePrefManager: DataStorePrefManager,
+        dataStoreRepository: DataStoreRepository,
         repository: Repository
     ) : ChaptersFragmentViewModelFactory {
         return ChaptersFragmentViewModelFactory(
             app,
-            dataStorePrefManager,
+            dataStoreRepository,
             repository
         )
     }
@@ -48,26 +48,12 @@ class FactoryModule {
     @Provides
     fun providesChapterVersesFragmentViewModelFactory(
         app : Application,
-        dataStorePrefManager: DataStorePrefManager,
+        dataStoreRepository: DataStoreRepository,
         repository: Repository
-    ) : ChapterVersesFragmentViewModelFactory {
-        return ChapterVersesFragmentViewModelFactory(
+    ) : VersesFragmentViewModelFactory {
+        return VersesFragmentViewModelFactory(
             app,
-            dataStorePrefManager,
-            repository
-        )
-    }
-
-    @Singleton
-    @Provides
-    fun providesVerseActivityViewModelFactory(
-        app : Application,
-        dataStorePrefManager: DataStorePrefManager,
-        repository: Repository
-    ) : VerseActivityViewModelFactory {
-        return VerseActivityViewModelFactory(
-            app,
-            dataStorePrefManager,
+            dataStoreRepository,
             repository
         )
     }

@@ -33,4 +33,12 @@ class LocalDataSourceImpl(
     override fun getAllVersesOfChapterFromGitaDB(chapterNo: Int): Flow<List<Verse>> {
         return versesDao.getAllVersesOfChapter(chapterNo)
     }
+
+    override fun getVerseFromGitaDB(verseId: Int): Flow<Verse> {
+        return versesDao.getVerse(verseId)
+    }
+
+    override fun searchVersesFromGitaDB(query: String): Flow<List<Verse>> {
+        return versesDao.searchVerses(query)
+    }
 }

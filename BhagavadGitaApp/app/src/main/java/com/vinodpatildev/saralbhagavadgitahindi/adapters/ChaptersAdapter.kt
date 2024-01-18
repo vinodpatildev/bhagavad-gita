@@ -1,16 +1,15 @@
 package com.vinodpatildev.saralbhagavadgitahindi.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.vinodpatildev.saralbhagavadgitahindi.R
 import com.vinodpatildev.saralbhagavadgitahindi.databinding.RcvChaptersItemBinding
 import com.vinodpatildev.saralbhagavadgitahindi.model.Chapter
 
 class ChaptersAdapter(
     private val chapterList: List<Chapter>,
-    private val listener: (chapter: Chapter) -> Unit
+    private val rootOnClickListener: (chapter: Chapter) -> Unit,
+    private val chapterDetailsOnClickListener: (chapter: Chapter) -> Unit
 ) : RecyclerView.Adapter<ChaptersAdapter.ChapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChapterViewHolder {
@@ -21,7 +20,7 @@ class ChaptersAdapter(
 
     override fun onBindViewHolder(holder: ChapterViewHolder, position: Int) {
         val chapter = chapterList[position]
-        holder.bind(chapter, listener)
+        holder.bind(chapter, rootOnClickListener, chapterDetailsOnClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -31,32 +30,22 @@ class ChaptersAdapter(
     inner class ChapterViewHolder(val binding: RcvChaptersItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(chapter: Chapter, listener: (chapter: Chapter) -> Unit) {
+        fun bind(
+            chapter: Chapter,
+            rootOnClickListener: (chapter: Chapter) -> Unit,
+            chapterDetailsOnClickListener: (chapter: Chapter) -> Unit
+        ) {
             binding.apply {
-                tvChapterNumber.text = chapter.chapter_number_devanagari + "."
-                tvChapterName.text = chapter.chapter_name
-                tvChapterNameMeaning.text = chapter.chapter_meaning
-                tvChapterSummary.text = chapter.chapter_summary
-                tvChapterSummaryFull.text = chapter.chapter_summary
+                tvChapterNumberText.text = chapter.chapter_number_dev
+                tvChapterName.text = chapter.chapter_name_hi
+                tvChapterNameMeaning.text = chapter.chapter_meaning_hi
             }
 
             binding.root.setOnClickListener {
-                listener(chapter)
+                rootOnClickListener(chapter)
             }
-            binding.ivDropdown.setOnClickListener {
-                if (binding.tvChapterSummary.visibility == View.VISIBLE) {
-                    binding.apply {
-                        ivDropdown.setImageResource(R.drawable.ic_arrow_drop_down)
-                        tvChapterSummary.visibility = View.GONE
-                        tvChapterSummaryFull.visibility = View.VISIBLE
-                    }
-                } else {
-                    binding.apply {
-                        ivDropdown.setImageResource(R.drawable.ic_arrow_drop_up)
-                        tvChapterSummary.visibility = View.VISIBLE
-                        tvChapterSummaryFull.visibility = View.GONE
-                    }
-                }
+            binding.ivDetails.setOnClickListener {
+                chapterDetailsOnClickListener(chapter)
             }
         }
     }

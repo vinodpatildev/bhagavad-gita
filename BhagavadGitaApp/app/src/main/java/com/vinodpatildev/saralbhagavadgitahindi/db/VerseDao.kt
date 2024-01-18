@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface VerseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllVerses(verses : List<Verse>)
+    suspend fun insertAllVerses(verses: List<Verse>)
 
     @Query("SELECT * FROM verses_table")
     suspend fun getAllVerses(): List<Verse>
@@ -18,6 +18,12 @@ interface VerseDao {
     @Query("DELETE FROM verses_table")
     suspend fun deleteAllVerses()
 
-    @Query("SELECT * FROM verses_table WHERE chapter_number=:chapterNo")
-    fun getAllVersesOfChapter(chapterNo : Int): Flow<List<Verse>>
+    @Query("SELECT * FROM verses_table WHERE chapter_id=:chapterId")
+    fun getAllVersesOfChapter(chapterId: Int): Flow<List<Verse>>
+
+    @Query("SELECT * FROM verses_table WHERE id=:verseId")
+    fun getVerse(verseId: Int): Flow<Verse>
+
+    @Query("SELECT * FROM verses_table WHERE verse_org_dev LIKE '%' || :query || '%' OR verse_org_roman LIKE '%' || :query || '%';\n")
+    fun searchVerses(query: String): Flow<List<Verse>>
 }

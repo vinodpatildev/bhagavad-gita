@@ -11,4 +11,8 @@ interface LocalDataSource{
     fun getAllChaptersFromGitaDB() : Flow<List<Chapter>>
 
     fun getAllVersesOfChapterFromGitaDB(chapterNo : Int) : Flow<List<Verse>>
+
+    fun getVerseFromGitaDB(verseId : Int) : Flow<Verse>
+
+    fun searchVersesFromGitaDB(query: String): Flow<List<Verse>>
 }

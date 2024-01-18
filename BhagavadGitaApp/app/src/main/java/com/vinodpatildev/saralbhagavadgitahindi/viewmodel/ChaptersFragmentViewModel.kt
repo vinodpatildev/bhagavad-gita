@@ -6,11 +6,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import com.vinodpatildev.saralbhagavadgitahindi.model.Chapter
 import com.vinodpatildev.saralbhagavadgitahindi.repository.Repository
-import com.vinodpatildev.saralbhagavadgitahindi.utils.DataStorePrefManager
+import com.vinodpatildev.saralbhagavadgitahindi.utils.DataStoreRepository
 
 class ChaptersFragmentViewModel(
     private val app: Application,
-    private val dataStorePrefManager: DataStorePrefManager,
+    private val dataStoreRepository: DataStoreRepository,
     private val repository: Repository
 ) : AndroidViewModel(app) {
     val chaptersLiveData : LiveData<List<Chapter>>
