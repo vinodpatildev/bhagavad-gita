@@ -9,15 +9,27 @@
         android:id="@+id/verseDetailsFragment"
         android:name="com.vinodpatildev.saralbhagavadgitahindi.view.verse.VerseDetailsFragment"
         android:label="fragment_verse_details"
-        tools:layout="@layout/fragment_verse_details" >
+        tools:layout="@layout/fragment_verse_details">
         <action
             android:id="@+id/openSearchVerseFragment"
             app:destination="@id/searchVerseFragment" />
+        <action
+            android:id="@+id/showCreateNoteBottomSheet"
+            app:destination="@id/createNoteBottomSheetDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchVerseFragment"
         android:name="com.vinodpatildev.saralbhagavadgitahindi.view.SearchVerseFragment"
         android:label="fragment_search_verse"
         tools:layout="@layout/fragment_search_verse" />
+    <dialog
+        android:id="@+id/createNoteBottomSheetDialogFragment"
+        android:name="com.vinodpatildev.saralbhagavadgitahindi.view.verse.CreateNoteBottomSheetDialogFragment"
+        android:label="fragment_create_note_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_create_note_bottom_sheet_dialog">
+        <argument
+            android:name="verseId"
+            app:argType="integer" />
+    </dialog>
 
 </navigation>

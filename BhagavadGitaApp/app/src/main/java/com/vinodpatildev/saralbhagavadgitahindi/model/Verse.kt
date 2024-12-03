@@ -39,4 +39,5 @@ data class Verse(
     @SerializedName("verse_org_roman") val verse_org_roman: String,
     @SerializedName("verse_ta") val verse_ta: String,
     @SerializedName("verse_te") val verse_te: String,
+    @SerializedName("like") val like: Boolean
 )

@@ -42,8 +42,6 @@ class ChapterDetailsBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 tvChapterName.text = it.chapter_name_hi
                 tvChapterNameMeaning.text = it.chapter_meaning_hi
                 tvChapterNameSummary.text = it.chapter_summary_hi
-
-
                 ivClose.setOnClickListener {
                     findNavController().popBackStack()
                 }

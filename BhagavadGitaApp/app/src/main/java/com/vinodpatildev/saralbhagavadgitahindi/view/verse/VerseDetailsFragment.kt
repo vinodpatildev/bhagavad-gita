@@ -1,6 +1,10 @@
 package com.vinodpatildev.saralbhagavadgitahindi.view.verse
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -28,6 +32,7 @@ class VerseDetailsFragment : Fragment() {
     private var _binding: FragmentVerseDetailsBinding? = null
     private val binding: FragmentVerseDetailsBinding
         get() = checkNotNull(_binding) { "binding is not initiated." }
+    private var mCurrentVerse : Verse? = null
 
     @Inject
     lateinit var verseDetailsFragmentViewModelFactory: VerseDetailsFragmentViewModelFactory
@@ -93,7 +98,10 @@ class VerseDetailsFragment : Fragment() {
 
     private fun setVerseObserver() {
         verseDetailsFragmentViewModel.currentVerse.observe(viewLifecycleOwner) { verse: Verse? ->
-            verse.let { updateUI(it) }
+            verse.let {
+                mCurrentVerse = it
+                updateUI(it)
+            }
         }
     }
 
@@ -109,6 +117,33 @@ class VerseDetailsFragment : Fragment() {
                     R.string.verse_label_text
                 ) + " " + verse.verse_number_dev
         }
+    }
+    fun highlightSynonymsText(inputText: String): SpannableString {
+        val spannableString = SpannableString(inputText)
+        val lines = inputText.split(';')
+        var startIndex = 0
+        for (line in lines) {
+            var hyphenIndex = line.indexOf('-')
+            if(hyphenIndex == -1) hyphenIndex = line.length
+
+            spannableString.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                startIndex,
+                startIndex + hyphenIndex,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+
+            if (hyphenIndex < line.length - 1) {
+                spannableString.setSpan(
+                    ForegroundColorSpan(Color.GRAY),
+                    startIndex + hyphenIndex + 1,
+                    startIndex + line.length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+            startIndex += line.length + 1
+        }
+        return spannableString
     }
 
     private fun setupToolbar() {
@@ -136,7 +171,15 @@ class VerseDetailsFragment : Fragment() {
                         )
                         true
                     }
-
+//                    R.id.action_add_note -> {
+//                        findNavController().navigate(
+//                            VerseDetailsFragmentDirections.showCreateNoteBottomSheet(mCurrentVerse?.id!!)
+//                        )
+//                        true
+//                    }
+//                    R.id.action_like -> {
+//                        true
+//                    }
                     else -> {
                         false
                     }

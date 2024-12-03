@@ -1,6 +1,7 @@
 package com.vinodpatildev.saralbhagavadgitahindi.di
 
 import com.vinodpatildev.saralbhagavadgitahindi.db.ChapterDao
+import com.vinodpatildev.saralbhagavadgitahindi.db.NoteDao
 import com.vinodpatildev.saralbhagavadgitahindi.db.VerseDao
 import com.vinodpatildev.saralbhagavadgitahindi.repository.datasource.LocalDataSource
 import com.vinodpatildev.saralbhagavadgitahindi.repository.datasourceimpl.LocalDataSourceImpl
@@ -17,11 +18,13 @@ class LocalDataModule {
     @Provides
     fun provideLocalDataSource(
         chapterDao: ChapterDao,
-        verseDao: VerseDao
+        verseDao: VerseDao,
+        noteDao : NoteDao
     ): LocalDataSource {
         return LocalDataSourceImpl(
             chapterDao,
-            verseDao
+            verseDao,
+            noteDao
         )
     }
 }

@@ -32,7 +32,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="50dp"
+                >
 
                 <TextView
                     android:id="@+id/tvHeadingBhagavadgita"
@@ -110,6 +112,7 @@
                     android:fontFamily="@font/inknut_antiqua_regular"
                     android:justificationMode="inter_word"
                     android:textSize="14sp"
+                    android:textColor="@color/gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSynonymsLabel"
@@ -137,6 +140,7 @@
                     android:fontFamily="@font/inknut_antiqua_regular"
                     android:justificationMode="inter_word"
                     android:textSize="14sp"
+                    android:textColor="@color/gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvTranslationLabel"
@@ -153,6 +157,7 @@
             android:layout_margin="16dp"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/previous_verse_text"
+            android:elevation="6dp"
             android:src="@drawable/ic_chapter_next"
             app:fabCustomSize="44dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -166,6 +171,7 @@
             android:layout_margin="16dp"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/next_verse_text"
+            android:elevation="6dp"
             android:src="@drawable/ic_chapter_prev"
             app:fabCustomSize="44dp"
             app:layout_constraintBottom_toBottomOf="parent"

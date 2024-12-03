@@ -12,13 +12,12 @@
         android:layout_height="2dp"
         android:layout_gravity="center"
         android:layout_marginTop="18dp"
-        android:background="@color/black" />
+        android:background="@color/gray" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:padding="16dp">
+        android:layout_margin="16dp">
 
         <ImageView
             android:id="@+id/iv_close"
@@ -32,9 +31,7 @@
             android:id="@+id/tv_chapter_number_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
             android:fontFamily="@font/inknut_antiqua_bold"
-            android:gravity="center"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -42,22 +39,25 @@
 
         <TextView
             android:id="@+id/tv_chapter_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inknut_antiqua_bold"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_chapter_number_text"
             app:layout_constraintTop_toBottomOf="@id/tv_chapter_number_text"
             tools:text="@string/chapter_name_text" />
 
         <TextView
             android:id="@+id/tv_chapter_name_meaning"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inknut_antiqua_regular"
             android:textSize="16sp"
+            android:textColor="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_chapter_number_text"
             app:layout_constraintTop_toBottomOf="@id/tv_chapter_name"
             tools:text="@string/chapter_meaning_text" />
@@ -68,6 +68,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/inknut_antiqua_regular"
             android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_chapter_number_text"
             app:layout_constraintTop_toBottomOf="@id/tv_chapter_name_meaning"
             tools:text="@string/chapter_summary_text" />

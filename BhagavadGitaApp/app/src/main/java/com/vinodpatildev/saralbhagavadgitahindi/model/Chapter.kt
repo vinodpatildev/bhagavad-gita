@@ -1,5 +1,6 @@
 package com.vinodpatildev.saralbhagavadgitahindi.model
 
+
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey

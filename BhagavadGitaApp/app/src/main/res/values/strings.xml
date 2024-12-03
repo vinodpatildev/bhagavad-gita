@@ -27,6 +27,13 @@
     <string name="toolbar_back_button_content_description">पीछे</string>
     <string name="space">" "</string>
     <string name="colon">:</string>
+    <string name="note_title_label">Title</string>
+    <string name="note_title_hint">Three modes of material nature...</string>
+    <string name="note_text_label">Note</string>
+    <string name="note_text_hint">There are three modes of material nature.....</string>
+    <string name="add_like">Add like</string>
+    <string name="add_note">Add note</string>
+    <string name="search_verse">Search verse</string>
 
     <string-array name="chapter_names_bhagavad_gita">
         <item>अर्जुनविषाद योग</item>
