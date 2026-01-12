@@ -16,7 +16,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/actionBarSize"
+            android:layout_height="54dp"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:navigationContentDescription="@string/toolbar_back_button_content_description"
@@ -48,6 +48,8 @@
         android:layout_below="@id/appbar"
         android:clipToPadding="false"
         android:paddingLeft="12dp"
-        android:paddingRight="12dp" />
+        android:paddingRight="12dp"
+        tools:listitem="@layout/rcv_searched_verses_item"
+        />
 
 </RelativeLayout>

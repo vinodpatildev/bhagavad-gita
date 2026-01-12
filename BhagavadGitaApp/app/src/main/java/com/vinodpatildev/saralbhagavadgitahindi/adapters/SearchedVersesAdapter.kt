@@ -1,10 +1,12 @@
 package com.vinodpatildev.saralbhagavadgitahindi.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vinodpatildev.saralbhagavadgitahindi.databinding.RcvSearchedVersesItemBinding
 import com.vinodpatildev.saralbhagavadgitahindi.model.Verse
+import kotlin.plus
 
 class SearchedVersesAdapter (private val verseList : List<Verse>, private val listener : (verse : Verse) -> Unit) : RecyclerView.Adapter<SearchedVersesAdapter.SearchedVerseViewHolder>() {
 
@@ -24,9 +26,11 @@ class SearchedVersesAdapter (private val verseList : List<Verse>, private val li
 
     inner class SearchedVerseViewHolder(val binding : RcvSearchedVersesItemBinding) : RecyclerView.ViewHolder(binding.root){
 
+        @SuppressLint("SetTextI18n")
         fun bind(verse : Verse, listener : (verse : Verse) -> Unit){
             binding.apply {
-                tvVerse.text = verse.verse_org_dev
+                val verseText = verse.verse_org_dev.substringBefore("||").replace("|","॥")
+                tvVerse.text = verseText + " " + "॥" + verse.chapter_number_dev + "." + verse.verse_number_dev+ "॥"
             }
 
             binding.root.setOnClickListener {

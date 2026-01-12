@@ -17,6 +17,7 @@
         android:textAlignment="center"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:textColor="@color/gray_primary"
         tools:text="@string/verse_text" />
 
     <View

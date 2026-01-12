@@ -4,13 +4,13 @@
     <color name="color_secondary">#2b2d42</color>
     <color name="color_background">#e7ecef</color>
 
-    <color name="gray_primary">#2b2d42</color>
-    <color name="gray_secondary">#697386</color>
-    <color name="grey_disabled">#9B9B9B</color>
+    <color name="gray_primary">#DEFFFFFF</color>
+    <color name="gray_secondary">#99FFFFFF</color>
+    <color name="grey_disabled">#3F3F3F</color>
     <color name="gray_tertiary">#86868B</color>
-    <color name="invertDarkColor">#FFFFFF</color>
-    <color name="gray_light_border">#E3E8EE</color>
-    <color name="darkAccentColor">#F5F5F7</color>
+    <color name="invertDarkColor">#1C1E1F</color>
+    <color name="gray_light_border">#2E2E2E</color>
+    <color name="darkAccentColor">#61FFFFFF</color>
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
