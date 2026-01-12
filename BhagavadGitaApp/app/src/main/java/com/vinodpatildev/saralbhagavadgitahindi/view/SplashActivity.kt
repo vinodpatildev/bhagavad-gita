@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.Insets
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.vinodpatildev.saralbhagavadgitahindi.R
 import com.vinodpatildev.saralbhagavadgitahindi.databinding.ActivitySplashBinding
 import com.vinodpatildev.saralbhagavadgitahindi.utils.Resource
 import com.vinodpatildev.saralbhagavadgitahindi.view.main.MainActivity

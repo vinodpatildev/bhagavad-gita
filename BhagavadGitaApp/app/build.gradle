@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace 'com.vinodpatildev.saralbhagavadgitahindi'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.vinodpatildev.saralbhagavadgitahindi"
         minSdk 24
-        targetSdk 34
+        targetSdk 36
         versionCode 12
         versionName "12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -50,6 +50,7 @@ dependencies {
 
     //DI support - Hilt
     implementation("com.google.dagger:hilt-android:2.50")
+    implementation 'com.google.ar.sceneform:filament-android:1.17.1'
     ksp("com.google.dagger:hilt-compiler:2.50")
 
     //DataStore support
