@@ -50,9 +50,9 @@ dependencies {
 
     //DI support - Hilt
     implementation("com.google.dagger:hilt-android:2.50")
-    implementation 'com.google.ar.sceneform:filament-android:1.17.1'
     ksp("com.google.dagger:hilt-compiler:2.50")
-
+    implementation("com.google.android.filament:filament-android:1.56.0")
+    implementation("com.google.android.filament:gltfio-android:1.56.0")
     //DataStore support
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
