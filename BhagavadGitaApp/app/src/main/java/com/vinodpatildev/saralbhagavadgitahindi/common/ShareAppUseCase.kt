@@ -11,8 +11,6 @@ class ShareAppUseCase @Inject constructor(
     @ApplicationContext private val app: Context
 ) {
     operator fun invoke() {
-        val packageName = app.packageName
-        val link = "https://play.google.com/store/apps/details?id=com.vinodpatildev.saralbhagavadgitahindi"
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
             putExtra(Intent.EXTRA_SUBJECT, "Check out this app")
@@ -24,22 +22,11 @@ class ShareAppUseCase @Inject constructor(
                     "✔ Easy to understand Hindi\n" +
                     "✔ Clean, distraction-free reading\n" +
                     "✔ Learn & reflect on Krishna’s teachings\n\n" +
-                    "Begin your spiritual journey 🙏\n\n" +
-                "putExtra(\n" +
-                    "    Intent.EXTRA_TEXT,\n" +
-                    "    \"Discover the wisdom of the Bhagavad Gita in simple Hindi \uD83D\uDCD6✨\\n\\n\" +\n" +
-                    "    \"\uD83D\uDCF1 Download the app:\\n\" +\n" +
-                    "    \"https://play.google.com/store/apps/details?id=com.vinodpatildev.saralbhagavadgitahindi\\n\\n\" +\n" +
-                    "    \"✔ Easy to understand Hindi\\n\" +\n" +
-                    "    \"✔ Clean, distraction-free reading\\n\" +\n" +
-                    "    \"✔ Learn & reflect on Krishna’s teachings\\n\\n\" +\n" +
-                    "    \"Begin your spiritual journey \uD83D\uDE4F\"\n" +
-                    "$link"
+                    "Begin your spiritual journey 🙏\n\n"
             )
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) // 🔑 important
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
-        app.startActivity(Intent.createChooser(intent, "Share via").apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) // 🔑 chooser also needs it
-        })
+        app.startActivity(Intent.createChooser(intent, "Share via")
+            .apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)  })
     }
 }
