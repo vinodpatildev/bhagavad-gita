@@ -110,7 +110,7 @@ class SearchVerseFragment : Fragment() {
                         queryHint = getString(R.string.search_label)
                         val editText = findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
                         editText.setTextColor(context.getColor(R.color.on_primary))
-                        editText.setHintTextColor(context.getColor(R.color.on_primary))
+                        editText.setHintTextColor(context.getColor(R.color.gray_primary))
                         editText.textCursorDrawable = ContextCompat.getDrawable(context, R.drawable.search_cursor)
                         setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                             override fun onQueryTextSubmit(query: String?): Boolean {
