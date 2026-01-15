@@ -30,6 +30,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import androidx.core.view.get
 import androidx.core.view.size
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.vinodpatildev.saralbhagavadgitahindi.common.RateReviewAppUseCase
+import com.vinodpatildev.saralbhagavadgitahindi.common.ShareAppUseCase
 
 private const val TAG = "ChaptersFragmentTag"
 
@@ -46,6 +49,9 @@ class ChaptersFragment : Fragment(R.layout.fragment_chapters) {
     }
 
     private var chaptersAdapter: ChaptersAdapter? = null
+
+    @Inject lateinit var shareAppUseCase: ShareAppUseCase
+    @Inject lateinit var rateReviewAppUseCase: RateReviewAppUseCase
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -94,6 +100,14 @@ class ChaptersFragment : Fragment(R.layout.fragment_chapters) {
                 }
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        binding.appBarLayout.toolbarIcon.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Support the App 🙏")
+                .setMessage("You can share the app with friends or rate it on Play Store!")
+                .setPositiveButton("Share") { _, _ -> shareAppUseCase.invoke() }
+                .setNeutralButton("Rate") { _, _ -> rateReviewAppUseCase.invoke() }
+                .show()
+        }
     }
 
     private fun setupFragmentResultListeners() {
