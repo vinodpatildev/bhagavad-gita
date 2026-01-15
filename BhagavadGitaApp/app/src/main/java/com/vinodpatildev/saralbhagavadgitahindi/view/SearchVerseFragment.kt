@@ -1,6 +1,7 @@
 package com.vinodpatildev.saralbhagavadgitahindi.view
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +11,10 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -99,10 +103,15 @@ class SearchVerseFragment : Fragment() {
         binding.toolbar.apply {
             setNavigationOnClickListener { findNavController().popBackStack() }
             addMenuProvider(object : MenuProvider {
+                @RequiresApi(Build.VERSION_CODES.Q)
                 override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                     menuInflater.inflate(R.menu.fragment_search_verse, menu)
                     binding.searchView.apply {
                         queryHint = getString(R.string.search_label)
+                        val editText = findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+                        editText.setTextColor(context.getColor(R.color.on_primary))
+                        editText.setHintTextColor(context.getColor(R.color.on_primary))
+                        editText.textCursorDrawable = ContextCompat.getDrawable(context, R.drawable.search_cursor)
                         setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                             override fun onQueryTextSubmit(query: String?): Boolean {
                                 binding.searchView.clearFocus();

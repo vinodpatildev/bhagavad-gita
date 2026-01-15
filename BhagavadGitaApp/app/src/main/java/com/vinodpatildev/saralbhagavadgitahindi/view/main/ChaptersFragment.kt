@@ -9,6 +9,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
@@ -27,6 +28,8 @@ import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.ChaptersFragmentViewMo
 import com.vinodpatildev.saralbhagavadgitahindi.viewmodel.ChaptersFragmentViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import androidx.core.view.get
+import androidx.core.view.size
 
 private const val TAG = "ChaptersFragmentTag"
 

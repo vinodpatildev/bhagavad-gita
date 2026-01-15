@@ -19,7 +19,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/actionBarSize">
+            android:layout_height="@dimen/actionBarSize"
+            app:navigationIconTint="@color/on_primary">
 
             <ImageView
                 android:id="@+id/toolbar_icon"
@@ -27,6 +28,7 @@
                 android:layout_height="48dp"
                 android:padding="12dp"
                 android:src="@drawable/ic_menu_open"
+                app:tint="@color/on_primary"
                 android:visibility="invisible" />
 
             <TextView
@@ -35,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inknut_antiqua_regular"
                 android:paddingStart="8dp"
-                android:textColor="@color/white"
+                android:textColor="@color/on_primary"
                 android:textSize="18sp"
                 tools:text="@string/app_name" />
         </androidx.appcompat.widget.Toolbar>
