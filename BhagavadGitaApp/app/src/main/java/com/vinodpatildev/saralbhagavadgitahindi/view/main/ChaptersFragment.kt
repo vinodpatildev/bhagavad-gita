@@ -30,9 +30,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import androidx.core.view.get
 import androidx.core.view.size
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vinodpatildev.saralbhagavadgitahindi.common.RateReviewAppUseCase
 import com.vinodpatildev.saralbhagavadgitahindi.common.ShareAppUseCase
+import com.vinodpatildev.saralbhagavadgitahindi.utils.DataStoreRepository
+import kotlinx.coroutines.launch
 
 private const val TAG = "ChaptersFragmentTag"
 
@@ -53,6 +56,9 @@ class ChaptersFragment : Fragment(R.layout.fragment_chapters) {
     @Inject lateinit var shareAppUseCase: ShareAppUseCase
     @Inject lateinit var rateReviewAppUseCase: RateReviewAppUseCase
 
+    @Inject
+    lateinit var dataStoreRepository: DataStoreRepository
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -68,6 +74,15 @@ class ChaptersFragment : Fragment(R.layout.fragment_chapters) {
         setOptionsMenu()
         setupChaptersRecyclerView()
         setupFragmentResultListeners()
+        setupShareRateDialog()
+    }
+
+    private fun setupShareRateDialog() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val lastShown = dataStoreRepository.getLastSupportDialog()
+            val now = System.currentTimeMillis()
+            if (now - lastShown >= 7L * 24 * 60 * 60 * 1000) { showShareRateDialog() }
+        }
     }
 
     private fun setupToolbar() {
@@ -100,14 +115,23 @@ class ChaptersFragment : Fragment(R.layout.fragment_chapters) {
                 }
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-        binding.appBarLayout.toolbarIcon.setOnClickListener {
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Support the App 🙏")
-                .setMessage("You can share the app with friends or rate it on Play Store!")
-                .setPositiveButton("Share") { _, _ -> shareAppUseCase.invoke() }
-                .setNeutralButton("Rate") { _, _ -> rateReviewAppUseCase.invoke() }
-                .show()
-        }
+        binding.appBarLayout.toolbarIcon.setOnClickListener { showShareRateDialog() }
+    }
+
+    private fun showShareRateDialog(){
+        val now = System.currentTimeMillis()
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Support the App 🙏")
+            .setMessage("You can share the app with friends or rate it on Play Store!")
+            .setPositiveButton("Share") { _, _ ->
+                shareAppUseCase.invoke()
+                lifecycleScope.launch { dataStoreRepository.setLastSupportDialog(now) }
+            }
+            .setNeutralButton("Rate") { _, _ ->
+                rateReviewAppUseCase.invoke()
+                lifecycleScope.launch { dataStoreRepository.setLastSupportDialog(now) }
+            }
+            .show()
     }
 
     private fun setupFragmentResultListeners() {
